@@ -18,6 +18,7 @@ class Personnage{
     int pos_x;
     int pos_y;
     int vitesse;
+    String nom;
     //Capacite capacite;
         
 };
