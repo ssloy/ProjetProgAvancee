@@ -15,3 +15,11 @@ void deplacer(char dir){
             pos_x += vitesse;
             break;
 }
+
+void sauter(){
+    pos_y += vitesse;
+}
+
+void recevoirDegats(){
+    vie -= 1;
+}
