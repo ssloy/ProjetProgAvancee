@@ -6,7 +6,7 @@ class Personnage{
     public:
     
     Personnage(); //Constructeur
-    void deplacer(char d);
+    void deplacer(char dir);
     void sauter();
     void recevoirDegats();
     bool dansAir();
