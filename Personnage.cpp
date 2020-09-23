@@ -6,7 +6,7 @@ Personnage::Personnage(): vie(3),pos_x(0),pos_y(0),vitesse(5),nom("Dummy"){
     
 }
 
-void deplacer(char dir){
+void Personnage::deplacer(char dir){
     switch(dir):
         case q:
             pos_x -= vitesse;
@@ -16,10 +16,26 @@ void deplacer(char dir){
             break;
 }
 
-void sauter(){
+void Personnage::sauter(){
     pos_y += vitesse;
 }
 
-void recevoirDegats(){
+void Personnage::recevoirDegats(){
     vie -= 1;
+}
+
+bool Personnage::dansAir(){
+    bool air(false);
+    if (pos_y != 0){
+        air = true;
+    }
+    return air;
+}
+
+bool Personnage::estVivant(){
+    bool vivant(true);
+    if (vie == 0){
+        vivant = false;
+    }
+    return vivant;
 }
