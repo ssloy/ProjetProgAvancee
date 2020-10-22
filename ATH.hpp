@@ -7,15 +7,15 @@ class ATH{
     
     public:
     ATH(Cube joueur);
-    modifVieMax(int nb);
-    modifVie(int nb);
+    void modifVieMax(int nb);
+    void modifVie(int nb);
 
     private:
     Cube cube;
     sf::Texture textureViePleine;
     sf::Texture textureVieVide;
-    sf::Sprite sprViePleine;
-    sf::Sprite sprVieVide;
+    sf::Sprite sprPleine;
+    sf::Sprite sprVide;
 };
 
 #endif
