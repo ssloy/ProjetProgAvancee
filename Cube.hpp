@@ -14,7 +14,11 @@ class Cube{
     void augmenterVieMax(int v);
     bool estVivant() const;
     void deplacerCube(int x, int y);
+    void chute();
+    bool dansAir() const;
     void cubeGentil();
+    void cubeColere();
+    
    
     // Get/Set methode
     
