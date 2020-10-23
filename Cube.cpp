@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Cube::Cube(): vie(3), vieMax(3), position(Point(0,0)), nom("MadDummy"), vitesse(10), gravite(15){
+Cube::Cube(): vie(3), vieMax(3), position(Point(0,0)), nom("MadDummy"), vitesse(10), gravite(15), ath(ATH()){
     
     if (!textureCube.loadFromFile("../ressources/TextureCube/Cube.png")){
     }
@@ -11,7 +11,8 @@ Cube::Cube(): vie(3), vieMax(3), position(Point(0,0)), nom("MadDummy"), vitesse(
     textureCube.setRepeated(false);
     sprCube.setTexture(textureCube);
     sprCube.setOrigin(0,300);
-    sprCube.setScale(0.1,0.1);
+    sprCube.setScale(0.5,0.5);
+    sprCube.setPosition(0.f,300.f);
     
 }
 
@@ -20,14 +21,32 @@ void Cube::gagnerVie(int v){
     if (vie > vieMax){
         vie = vieMax;
     }
+    ath.modifVie(vie);
 }
 
 void Cube::prendreDegats(int d){
     vie -= d;
+    if (vie < 0){
+        vie = 0;
+    }
+    ath.modifVie(vie);
 }
 
 void Cube::augmenterVieMax(int v){
     vieMax += v;
+    if (vieMax > 6){
+        vieMax = 6;
+    }
+    ath.modifVieMax(vieMax);
+}
+
+void Cube::diminuerVieMax(int v){
+    vieMax -= v;
+    if (vieMax < 1){
+        vieMax = 1;
+    }
+    gagnerVie(0);   //gagnerVie(0) permet de mettre la vie à jour grace à "if" présent dans la fonction
+    ath.modifVieMax(vieMax);
 }
 
 bool Cube::estVivant() const{
@@ -136,6 +155,10 @@ sf::Texture Cube::getTexture(){
 
 sf::Sprite Cube::getSprite(){
     return sprCube;
+}
+
+ATH Cube::getATH() const{
+    return ath;
 }
 
 

@@ -1,19 +1,23 @@
 #ifndef DEF_ATH
 #define DEF_ATH
 
-#include "cube.hpp"
+#include <SFML/Graphics.hpp>
 
 class ATH{
-    
     public:
-    ATH(Cube joueur);
+    
+    ATH();
     void modifVieMax(int nb);
     void modifVie(int nb);
+    
+    //Get/Set methode
 
+    sf::Sprite getSpriteVide() const;
+    sf::Sprite getSpritePleine() const;	
+	
     private:
-    Cube cube;
-    sf::Texture textureViePleine;
-    sf::Texture textureVieVide;
+    sf::Texture texturePleine;
+    sf::Texture textureVide;
     sf::Sprite sprPleine;
     sf::Sprite sprVide;
 };

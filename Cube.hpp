@@ -2,6 +2,7 @@
 #define DEF_CUBE
 
 #include "Point.hpp"
+#include "ATH.hpp"
 #include <string>
 #include <SFML/Graphics.hpp>
 
@@ -12,6 +13,7 @@ class Cube{
     void gagnerVie(int v);
     void prendreDegats(int d = 1);
     void augmenterVieMax(int v);
+    void diminuerVieMax(int v);
     bool estVivant() const;
     void deplacerCube(int x, int y);
     void chute();
@@ -37,6 +39,7 @@ class Cube{
     void setTexture(sf::Image texture);
     sf::Texture getTexture();
     sf::Sprite getSprite();
+    ATH getATH() const;
     
     private:
     
@@ -48,6 +51,7 @@ class Cube{
     int gravite;
     sf::Texture textureCube;
     sf::Sprite sprCube;
+    ATH ath;
 };
 
 #endif

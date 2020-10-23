@@ -35,6 +35,22 @@ int main(){
                         cube.deplacerCube(1,0);
                         break;
                         
+                    case(sf::Keyboard::W):
+                        cube.prendreDegats(1);
+                        break;
+                        
+                    case(sf::Keyboard::X):
+                        cube.gagnerVie(1);
+                        break;
+                    
+                    case(sf::Keyboard::C):
+                        cube.augmenterVieMax(1);
+                        break;
+                        
+                    case(sf::Keyboard::V):
+                        cube.diminuerVieMax(1);
+                        break;
+                        
                     default:
                         break;
                 }
@@ -42,6 +58,8 @@ int main(){
         }
 
         window.draw(cube.getSprite());
+        window.draw(cube.getATH().getSpriteVide());
+        window.draw(cube.getATH().getSpritePleine());
         window.display();
     }
     
