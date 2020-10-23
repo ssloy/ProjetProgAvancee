@@ -42,6 +42,11 @@ void ATH::modifVie(int nb){
     sprPleine.setTextureRect(sf::IntRect(0,0,nb*10,10));
 }
 
+void ATH::modifMana(int nb){
+    float pourcent = (nb*66)/100;
+    sprMana.setTextureRect(sf::IntRect(0,0,pourcent,10));
+}
+
 
 //Get/Set methode
 

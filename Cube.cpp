@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Cube::Cube(): vie(3), vieMax(3), position(Point(0,0)), nom("MadDummy"), vitesse(10), gravite(15), ath(ATH()){
+Cube::Cube(): vie(3), vieMax(3), mana(100), position(Point(0,0)), nom("MadDummy"), vitesse(10), gravite(15), ath(ATH()){
     
     if (!textureCube.loadFromFile("../ressources/TextureCube/Cube.png")){
     }
@@ -47,6 +47,22 @@ void Cube::diminuerVieMax(int v){
     }
     gagnerVie(0);   //gagnerVie(0) permet de mettre la vie à jour grace à "if" présent dans la fonction
     ath.modifVieMax(vieMax);
+}
+
+void Cube::regenMana(int m){
+    mana += m;
+    if (mana > 100){
+        mana = 100;
+    }
+    ath.modifMana(mana);
+}
+
+void Cube::depenserMana(int m){
+    mana -= m;
+    if (mana < 0){
+        mana = 0;
+    }
+    ath.modifMana(mana);
 }
 
 bool Cube::estVivant() const{
@@ -95,7 +111,11 @@ void Cube::cubeColere(){
     sprCube.setTextureRect(sf::IntRect(301,301,300,300));
 }
 
-// Get/Set methode
+
+
+//[*]-------------------- Get/Set methode--------------------[*]
+
+
 
 int Cube::getVie() const{
     return vie;
@@ -125,7 +145,7 @@ void Cube::setNom(string nouvNom){
     nom = nouvNom;
 }
 
-string Cube::getNom(){
+string Cube::getNom() const{
     return nom;                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 }
 

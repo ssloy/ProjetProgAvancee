@@ -14,6 +14,8 @@ class Cube{
     void prendreDegats(int d = 1);
     void augmenterVieMax(int v);
     void diminuerVieMax(int v);
+    void regenMana(int m);
+    void depenserMana(int m);
     bool estVivant() const;
     
     void deplacerCube(int x, int y);
@@ -36,7 +38,7 @@ class Cube{
     void setOrdonneeCube(int y);
     	//Nom
     void setNom(std::string nouvNom);
-    std::string getNom();
+    std::string getNom() const;
     	//Vitesse
     int getVitesse() const;
     void setVitesse(int vit);
@@ -54,6 +56,7 @@ class Cube{
     
     int vie;
     int vieMax;
+    int mana;
     Point position;
     std::string nom;
     int vitesse;

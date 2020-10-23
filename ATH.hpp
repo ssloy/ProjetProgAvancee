@@ -9,6 +9,7 @@ class ATH{
     ATH();
     void modifVieMax(int nb);
     void modifVie(int nb);
+    void modifMana(int nb);
     
     //Get/Set methode
 

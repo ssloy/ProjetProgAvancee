@@ -51,6 +51,14 @@ int main(){
                         cube.diminuerVieMax(1);
                         break;
                         
+                    case(sf::Keyboard::P):
+                        cube.regenMana(1);
+                        break;
+                    
+                    case(sf::Keyboard::M):
+                        cube.depenserMana(1);
+                        break;
+                        
                     default:
                         break;
                 }
