@@ -22,8 +22,13 @@ enable_cxx_compiler_flag_if_supported("-std=c++14")
 enable_cxx_compiler_flag_if_supported("-O3")
 
 file(GLOB SOURCES
-    "${SRC_DIR}/*.h"
-    "${SRC_DIR}/*.cpp"
+    "${SRC_DIR}/Cube.hpp"
+    "${SRC_DIR}/Cube.cpp"
+    "${SRC_DIR}/Point.hpp"
+    "${SRC_DIR}/Point.cpp"
+    "${SRC_DIR}/ATH.hpp"
+    "${SRC_DIR}/ATH.cpp"
+    "${SRC_DIR}/main.cpp"
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
