@@ -43,23 +43,25 @@ int main(){
                         cube.gagnerVie(1);
                         break;
                     
-                    case(sf::Keyboard::C):
+                    case(sf::Keyboard::V):
                         cube.augmenterVieMax(1);
                         break;
                         
-                    case(sf::Keyboard::V):
+                    case(sf::Keyboard::C):
                         cube.diminuerVieMax(1);
                         break;
                         
                     default:
                         break;
                 }
-            }
+            }  
         }
 
         window.draw(cube.getSprite());
         window.draw(cube.getATH().getSpriteVide());
         window.draw(cube.getATH().getSpritePleine());
+        window.draw(cube.getATH().getSpriteBarreMana());
+        window.draw(cube.getATH().getSpriteMana());
         window.display();
     }
     

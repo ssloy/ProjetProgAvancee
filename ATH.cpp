@@ -6,6 +6,11 @@ ATH::ATH(){
     }
     if (!texturePleine.loadFromFile("../ressources/TextureATH/barreVie.png")){
     }
+    if (!textureBarreMana.loadFromFile("../ressources/TextureATH/barreMana.png")){
+    }
+    if (!textureMana.loadFromFile("../ressources/TextureATH/Mana.png")){
+    }
+    
     
     textureVide.setRepeated(false);
     sprVide.setTexture(textureVide);
@@ -16,6 +21,17 @@ ATH::ATH(){
     sprPleine.setTexture(texturePleine);
     sprPleine.setScale(5,5);
     sprPleine.setTextureRect(sf::IntRect(0,0,30,10));
+    
+    textureMana.setRepeated(false);
+    sprMana.setTexture(textureMana);
+    sprMana.setScale(5,3);
+    sprMana.setPosition(sf::Vector2f(0,60));
+    
+    textureBarreMana.setRepeated(false);
+    sprBarreMana.setTexture(textureBarreMana);
+    sprBarreMana.setScale(5,3);
+    sprBarreMana.setPosition(sf::Vector2f(0,60));
+    
 }
 
 void ATH::modifVieMax(int nb){
@@ -26,6 +42,9 @@ void ATH::modifVie(int nb){
     sprPleine.setTextureRect(sf::IntRect(0,0,nb*10,10));
 }
 
+
+//Get/Set methode
+
 sf::Sprite ATH::getSpriteVide() const{
     return sprVide;
 }
@@ -33,3 +52,16 @@ sf::Sprite ATH::getSpriteVide() const{
 sf::Sprite ATH::getSpritePleine() const{
     return sprPleine;
 }
+
+sf::Sprite ATH::getSpriteBarreMana() const{
+    return sprBarreMana;
+}
+
+sf::Sprite ATH::getSpriteMana() const{
+    return sprMana;
+}
+
+
+
+
+

@@ -13,13 +13,22 @@ class ATH{
     //Get/Set methode
 
     sf::Sprite getSpriteVide() const;
-    sf::Sprite getSpritePleine() const;	
+    sf::Sprite getSpritePleine() const;
+    sf::Sprite getSpriteBarreMana() const;
+    sf::Sprite getSpriteMana() const;	
+	
 	
     private:
+    
     sf::Texture texturePleine;
     sf::Texture textureVide;
+    sf::Texture textureBarreMana;
+    sf::Texture textureMana;
+    
     sf::Sprite sprPleine;
     sf::Sprite sprVide;
+    sf::Sprite sprBarreMana;
+    sf::Sprite sprMana;
 };
 
 #endif
