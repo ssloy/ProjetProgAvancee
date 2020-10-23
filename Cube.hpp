@@ -15,30 +15,39 @@ class Cube{
     void augmenterVieMax(int v);
     void diminuerVieMax(int v);
     bool estVivant() const;
+    
     void deplacerCube(int x, int y);
+    
     void chute();
     bool dansAir() const;
+    
     void cubeGentil();
     void cubeColere();
     
    
     // Get/Set methode
-    
+    	// Vie/Max
     int getVie() const;
     int getVieMax() const;
+    	//Position
     int getAbscisseCube() const;
     int getOrdonneeCube() const;
     void setAbscisseCube(int x);
     void setOrdonneeCube(int y);
+    	//Nom
     void setNom(std::string nouvNom);
     std::string getNom();
+    	//Vitesse
     int getVitesse() const;
     void setVitesse(int vit);
+    	//Gravite
     int getGravite() const;
     void setGravite(int g);
+    	//Sprite/Texture
     void setTexture(sf::Image texture);
     sf::Texture getTexture();
     sf::Sprite getSprite();
+    	//ATH
     ATH getATH() const;
     
     private:
