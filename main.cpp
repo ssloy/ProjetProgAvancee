@@ -1,4 +1,7 @@
 #include "Cube.hpp"
+#include <chrono>
+#include <thread>
+
 
 int main(){
     
@@ -6,12 +9,30 @@ int main(){
     
     Cube cube;
     cube.cubeGentil();
-    
+
+    int speed_y = 10;
+    auto t1 = std::chrono::high_resolution_clock::now();
     while (window.isOpen()){
+        { // sleep if less than 20 ms since last re-rendering; TODO: decouple rendering and event polling frequencies
+            auto t2 = std::chrono::high_resolution_clock::now();
+            std::chrono::duration<double, std::milli> fp_ms = t2 - t1;
+            if (fp_ms.count()<40) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(3));
+                continue;
+            }
+            t1 = t2;
+        }
+        { // apply changes to the world
+            if (speed_y>0 && cube.getOrdonneeCube()<400 || speed_y<0 && cube.getOrdonneeCube()>0) {
+                cube.deplacerCube(0, speed_y);
+            }
+            if (speed_y<20) speed_y++;
+        }
         window.clear();
         
         sf::Event event;
         while (window.pollEvent(event)){
+
             if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
                 window.close();
             }
@@ -19,9 +40,11 @@ int main(){
                 
                 switch(event.key.code){
                     
-                    case(sf::Keyboard::Z):
-                        cube.deplacerCube(0,-1);
-                        break;
+                    case(sf::Keyboard::Z): {
+                        if (cube.getOrdonneeCube()>390)
+                        speed_y = -20;
+//                      cube.deplacerCube(0,-1);
+                     } break;
                         
                     case(sf::Keyboard::Q):
                         cube.deplacerCube(-1,0);
@@ -66,7 +89,7 @@ int main(){
                 if (cube.dansAir() == true){
                     cube.chute();
                 }
-            }  
+            }
         }
 
         window.draw(cube.getSprite());

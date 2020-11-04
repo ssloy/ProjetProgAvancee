@@ -74,8 +74,8 @@ bool Cube::estVivant() const{
 }
 
 void Cube::deplacerCube(int x, int y){
-    sprCube.move(x*vitesse,y*vitesse);
-    position.deplacer(x*vitesse,y*vitesse);
+    sprCube.move(x,y);
+    position.deplacer(x,y);
 }
 
 void Cube::chute(){
