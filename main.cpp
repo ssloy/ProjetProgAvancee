@@ -62,6 +62,10 @@ int main(){
                     default:
                         break;
                 }
+                
+                if (cube.dansAir() == true){
+                    cube.chute();
+                }
             }  
         }
 
